@@ -1,148 +1,141 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Document = styled.img`
-    display: none;
-    height: 70px;
-    width: fit-content;
-    background-color: #000;
-    border-radius: 10px;
-    &:hover{
-        cursor: pointer;
-        opacity: 0.8;
-    }
-`
-
-const Description = styled.div`
+const Card = styled(motion.div)`
     width: 100%;
-    font-size: 15px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_primary + 99};
-    margin-bottom: 10px;
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
-
-const Span = styled.span`
-overflow: hidden;
-display: -webkit-box;
-max-width: 100%;
--webkit-line-clamp: 4;
--webkit-box-orient: vertical;
-text-overflow: ellipsis;
-`
-
-const Card = styled.div`
-    width: 650px;
-    border-radius: 10px;
-    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-    padding: 12px 16px;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
+    max-width: 900px;
+    background-color: #171721;
+    border: 1px solid #854ce6;
+    box-shadow: rgba(133, 76, 230, 0.15) 0px 4px 24px;
+    border-radius: 16px;
+    padding: 32px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+    cursor: pointer;
+    position: relative;
     transition: all 0.3s ease-in-out;
-    &:hover{
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    &:hover {
+        box-shadow: rgba(133, 76, 230, 0.2) 0px 4px 32px;
         transform: translateY(-5px);
     }
     @media only screen and (max-width: 768px){
-        padding: 10px;
-        gap: 8px;
-        width: 300px;
+      padding: 16px;
     }
-
-    &:hover ${Document}{
-        display: flex;
-    }
-
-    &:hover ${Span}{
-        overflow: visible;
-        -webkit-line-clamp: unset;
-
-    }
-    border: 0.1px solid #854CE6;
-`
-
-const Top = styled.div`
-    width: 100%;
-    display: flex;
-    gap: 12px
-`
+`;
 
 const Image = styled.img`
-    height: 50px;
-    background-color: #000;
-    border-radius: 10px;
-    margin-top: 4px;
+    height: 120px;
+    width: 120px;
+    background-color: #fff;
+    border-radius: 16px;
+    object-fit: contain;
+    padding: 12px;
     @media only screen and (max-width: 768px){
-        height: 40px;
+        height: 60px;
+        width: 60px;
     }
-`
+`;
 
 const Body = styled.div`
-    width: 100%;
     display: flex;
-    flex-direction: column; 
-`
+    flex-direction: column;
+    width: 100%;
+`;
 
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+`;
 
 const Name = styled.div`
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.text_primary};
+    @media only screen and (max-width: 768px){
+        font-size: 16px;
+    }
+`;
+
+const Degree = styled.div`
+    font-size: 16px;
     font-weight: 600;
-    color: ${({ theme }) => theme.text_primary + 99};
+    color: #854ce6;
+    margin-top: 4px;
     @media only screen and (max-width: 768px){
         font-size: 14px;
     }
-`
+`;
 
-const Degree = styled.div`
-    font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
-
-const Date = styled.div`
+const DateTag = styled.div`
     font-size: 12px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 80};
+    font-weight: 500;
+    color: ${({ theme }) => theme.text_secondary};
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 6px 16px;
+    border-radius: 50px;
+    white-space: nowrap;
     @media only screen and (max-width: 768px){
         font-size: 10px;
     }
-`
+`;
 
-const Grade = styled.div`
-    font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
+const Description = styled.div`
+    font-size: 15px;
+    line-height: 1.6;
+    color: ${({ theme }) => theme.text_primary + 99};
+    margin: 12px 0;
     @media only screen and (max-width: 768px){
-        font-size: 12px;
+        font-size: 13px;
     }
-`
+`;
 
+const Skills = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+`;
 
+const SkillPill = styled.div`
+    font-size: 12px;
+    font-weight: 500;
+    color: #f2f3f4;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 5px 14px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+`;
 
 const EducationCard = ({ education }) => {
     return (
-        <Card>
-            <Top>
-                <Image src={education.img} />
-                <Body>
-                    <Name>{education.school}</Name>
-                    <Degree>{education.degree}</Degree>
-                    <Date>{education.date}</Date>
-                </Body>
-            </Top>
-            <Grade><b>Grade: </b>{education.grade}</Grade>
-            <Description>
-                <Span>{education.desc}</Span>
-            </Description>
+        <Card
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+        >
+            <Image src={education.img} />
+            <Body>
+                <Header>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Name>{education.school}</Name>
+                        <Degree>{education.degree}</Degree>
+                    </div>
+                    <DateTag>{education.date}</DateTag>
+                </Header>
+                <Description>
+                    {education.desc}
+                </Description>
+                <Skills>
+                    {education.skills?.map((skill, index) => (
+                        <SkillPill key={index}>{skill}</SkillPill>
+                    ))}
+                </Skills>
+            </Body>
         </Card>
     )
 }

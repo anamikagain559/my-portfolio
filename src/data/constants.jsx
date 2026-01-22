@@ -1,11 +1,11 @@
 export const Bio = {
   name: "Anamika Gain",
   roles: [
-    "Full Stack Developer",
+    "Fullstack Developer",
     "Programmer",
   ],
   description:
-    "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
+    "Crafting high-performance digital experiences with modern web technologies. Specialized in building scalable applications with elegant architectures.",
   github: "https://github.com/anamikagain559",
   resume:
     "https://drive.google.com/file/d/1VYaNM_i7G8pH0sjtwkE6cgv4I2LB8sfd/view?usp=drive_link",
@@ -58,7 +58,7 @@ export const skills = [
         image:
           "https://i.ibb.co/zxQvRm3/Screenshot-2024-07-04-132910.png",
       },
-       {
+      {
         name: "TypeScript",
         image:
           "https://i.ibb.co/FbJnzpkM/images.png",
@@ -97,8 +97,8 @@ export const skills = [
       },
     ],
   },
- 
- 
+
+
 ];
 
 export const experiences = [
@@ -120,7 +120,7 @@ export const experiences = [
       "Next Js",
     ],
   },
-  
+
 ];
 
 export const education = [
@@ -152,7 +152,7 @@ export const education = [
 
 export const projects = [
 
-    {
+  {
     id: 0,
     title: "ThaiMart Store",
     date: "january 2025",
@@ -173,7 +173,7 @@ export const projects = [
       }
     ],
   },
-    {
+  {
     id: 0,
     title: "QuickBite",
     date: "Oct 2024",
@@ -187,7 +187,7 @@ export const projects = [
     webapp: "https://quick-bites-tau.vercel.app/",
     member: [
       {
-        name: ["Anamika Gain","Sojib Islam","Akbor Shanto","Safwan Hossain","Omar Farok","Rakib Hasan"],
+        name: ["Anamika Gain", "Sojib Islam", "Akbor Shanto", "Safwan Hossain", "Omar Farok", "Rakib Hasan"],
         img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
         linkedin: "https://www.linkedin.com/in/anamika-anu/",
         github: "https://github.com/anamikagain559",
@@ -249,7 +249,7 @@ export const projects = [
     title: "Explore Asia",
     date: "Mar 2024",
     description:
-     "Explore Asia is your premier destination for all things travel-related in Asia. As a comprehensive tours and travel website, Explore Asia caters to travel companies looking to showcase their destinations and attractions across the diverse continent of Asia.",
+      "Explore Asia is your premier destination for all things travel-related in Asia. As a comprehensive tours and travel website, Explore Asia caters to travel companies looking to showcase their destinations and attractions across the diverse continent of Asia.",
     image:
       "https://i.ibb.co/LdBQVK2/Travel-Website.png",
     tags: ["Reactjs", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "FireBase Auth"],

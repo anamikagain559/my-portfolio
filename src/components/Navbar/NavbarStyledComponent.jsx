@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import _default from '../../themes/default';
 
 export const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
+    background-color: ${({ theme }) => theme.card_light};
     height: 80px;
     display: flex;
     align-items: center;
@@ -74,26 +74,29 @@ export const NavLink = styled.a`
 
 
 export const GitHubButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
+  background: hsla(271, 100%, 50%, 1);
+  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+  color: white;
   justify-content: center;
   display: flex;
   align-items: center;
   height: 70%;
-  border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
+  border-radius: 50px;
   cursor: pointer;
-  padding: 0 20px;
-  font-weight: 500;
+  padding: 0 25px;
+  font-weight: 600;
   text-decoration: none;
   font-size: 16px;
   transition: all 0.6s ease-in-out;
-    :hover {
-      background: ${({ theme }) => theme.primary};
-      color: ${({ theme }) => theme.white};     
-    }
-    @media screen and (max-width: 768px) { 
+  box-shadow: 0 0 10px rgba(133, 76, 230, 0.4);
+  &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(133, 76, 230, 0.6);
+      filter: brightness(1.1);
+  }
+  @media screen and (max-width: 768px) { 
     font-size: 14px;
-    }
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -133,7 +136,7 @@ export const MobileMenu = styled.div`
     right: 0;
     width: 100%;
     padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light+99};
+    background: ${({ theme }) => theme.card_light + 99};
     transition: all 0.6s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
     border-radius: 0 0 20px 20px;
@@ -190,7 +193,7 @@ export const MobileMenuButton = styled.a`
   }
 `;
 
-export  const MobileLink = styled.a`
+export const MobileLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
   font-weight: 500;
   cursor: pointer;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import _default from "../../themes/default";
+import { motion } from "framer-motion";
 
 export const HeroContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
@@ -54,7 +54,7 @@ export const HeroInnerContainer = styled.div`
     flex-direction: column;
   }
 `;
-export const HeroLeftContainer = styled.div`
+export const HeroLeftContainer = styled(motion.div)`
   width: 100%;
   order: 1;
   @media (max-width: 960px) {
@@ -99,7 +99,8 @@ export const Img = styled.img`
   max-width: 400px;
   max-height: 400px;
   border-radius: 50%;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 6px solid #111111;
+  object-fit: cover;
 
   @media (max-width: 768px) {
     max-width: 400px;
@@ -112,11 +113,23 @@ export const Img = styled.img`
   }
 `;
 
-export const Title = styled.div`
+export const HireTag = styled(motion.div)`
+  font-weight: 600;
+  font-size: 12px;
+  color: ${({ theme }) => theme.primary};
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  @media (max-width: 960px) {
+    text-align: center;
+  }
+`;
+
+export const Title = styled(motion.div)`
   font-weight: 700;
   font-size: 50px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  line-height: 1.2;
   @media (max-width: 960px) {
     text-align: center;
   }
@@ -128,7 +141,11 @@ export const Title = styled.div`
   }
 `;
 
-export const TextLoop = styled.div`
+export const Name = styled.span`
+  color: ${({ theme }) => theme.primary};
+`;
+
+export const TextLoop = styled(motion.div)`
   font-weight: 600;
   font-size: 32px;
   display: flex;
@@ -148,11 +165,12 @@ export const TextLoop = styled.div`
 export const Span = styled.span`
   color: ${({ theme }) => theme.primary};
   cursor: pointer;
+  text-decoration: underline;
 `;
 
-export const SubTitle = styled.div`
-  font-size: 20px;
-  line-height: 32px;
+export const SubTitle = styled(motion.div)`
+  font-size: 18px;
+  line-height: 1.6;
   margin-bottom: 42px;
   color: ${({ theme }) => theme.text_primary + 95};
 
@@ -166,38 +184,105 @@ export const SubTitle = styled.div`
   }
 `;
 
-export const ResumeButton = styled.a`
+export const ButtonContainer = styled(motion.div)`
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  width: 100%;
+  @media (max-width: 960px) {
+    justify-content: center;
+  }
+`;
+
+export const ResumeButton = styled(motion.a)`
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
     text-decoration: none;
-    width: 95%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 200px;
     text-align: center;
     padding: 16px 0;
     color:${({ theme }) => theme.white};
-    border-radius: 20px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
     background: hsla(271, 100%, 50%, 1);
     background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
     background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
     background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    box-shadow:  20px 20px 60px #1F2634,
-    -20px -20px 60px #1F2634;
+    box-shadow: 0 0 20px rgba(133, 76, 230, 0.4);
     &:hover {
         transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 0 30px rgba(133, 76, 230, 0.6);
+        filter: brightness(1.1);
     }    
-    
     
     @media (max-width: 640px) {
         padding: 12px 0;
-        font-size: 18px;
+        font-size: 16px;
     } 
+`;
 
+export const ViewProjectButton = styled(motion.a)`
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    width: 100%;
+    max-width: 180px;
+    text-align: center;
+    padding: 16px 0;
+    color:${({ theme }) => theme.white};
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out !important;
+    border: 1px solid ${({ theme }) => theme.text_primary + 50};
+    background: #111111;
+    &:hover {
+        transform: scale(1.05);
+        transition: all 0.4s ease-in-out;
+        background: ${({ theme }) => theme.text_primary + 10};
+        border: 1px solid ${({ theme }) => theme.text_primary};
+    }    
+    
+    @media (max-width: 640px) {
+        padding: 12px 0;
+        font-size: 16px;
+    } 
+`;
+
+export const ProfileImageContainer = styled(motion.div)`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: ${({ theme }) => theme.primary + 70};
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  @media (max-width: 768px) {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media (max-width: 640px) {
+    width: 280px;
+    height: 280px;
+  }
 `;

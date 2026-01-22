@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ProjectDetails from "./components/ProjectDetails";
+import FloatingNav from "./components/FloatingNav";
 import styled from "styled-components";
 
 const Body = styled.div`
@@ -46,6 +47,7 @@ function App() {
             <Contact />
           </Wrapper>
           <Footer />
+          <FloatingNav />
           {openModal.state &&
             <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
           }
