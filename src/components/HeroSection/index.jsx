@@ -95,7 +95,7 @@ const HeroSection = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <Img src={HeroImg} alt="hero-image" />
+                            <Img src={"https://i.ibb.co.com/yS6dVv5/FF-25.jpg"} alt="hero-image" />
                         </ProfileImageContainer>
                     </HeroRightContainer>
                 </HeroInnerContainer>

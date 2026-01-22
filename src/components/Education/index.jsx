@@ -33,6 +33,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
+  font-family: 'Outfit', sans-serif;
   font-size: 42px;
   text-align: left;
   font-weight: 600;
@@ -55,6 +56,7 @@ const Title = styled.div`
 `;
 
 const Desc = styled.div`
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
     text-align: left;
     width: 100%;

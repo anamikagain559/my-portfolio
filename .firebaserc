@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "portfolio-5abd7"
-  }
+  },
+  "targets": {
+    "portfolio-5abd7": {
+      "hosting": {
+        "main": [
+          "portfolio-5abd7"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

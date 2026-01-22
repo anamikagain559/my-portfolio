@@ -17,7 +17,7 @@ export const Bio = {
 
 export const skills = [
   {
-    title: "Frontend",
+    title: "Frontend Engineering",
     skills: [
       {
         name: "React Js",
@@ -66,7 +66,7 @@ export const skills = [
     ],
   },
   {
-    title: "Backend",
+    title: "Backend Architecture",
     skills: [
       {
         name: "Node Js",
@@ -262,6 +262,27 @@ export const projects = [
         img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
         linkedin: "https://www.linkedin.com/in/anamika-anu/",
         github: "https://github.com/anamikagain559",
+      }
+    ],
+  },
+  {
+    id: 4,
+    title: "TravelBuddy",
+    date: "january 2025",
+    description:
+      "A full-stack social travel platform that helps travelers find compatible travel buddies, plan trips together, and build meaningful connections. The platform blends social networking, travel planning, and subscription-based premium features to turn solo trips into shared adventures.",
+    image:
+      "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
+    tags: ["Next js", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "Type"],
+    category: "web app",
+    github: "https://github.com/anamikagain559/Travel-Buddy.git",
+    webapp: "https://travel-buddy-azure.vercel.app",
+    member: [
+      {
+        name: "Anamika Gain",
+        img: "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
+        linkedin: "https://www.linkedin.com/in/anamika-anu/",
+        github: "https://github.com/anamikagain559/Travel-Buddy.git",
       }
     ],
   }

@@ -126,6 +126,7 @@ export const HireTag = styled(motion.div)`
 `;
 
 export const Title = styled(motion.div)`
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 50px;
   color: ${({ theme }) => theme.text_primary};
@@ -169,6 +170,7 @@ export const Span = styled.span`
 `;
 
 export const SubTitle = styled(motion.div)`
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 42px;
@@ -207,6 +209,7 @@ export const ResumeButton = styled(motion.a)`
     border-radius: 50px;
     cursor: pointer;
     font-size: 18px;
+    font-family: 'Outfit', sans-serif;
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
     background: hsla(271, 100%, 50%, 1);

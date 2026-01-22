@@ -1,61 +1,78 @@
 import styled from 'styled-components';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import { Bio } from '../../data/constants';
+import { motion } from 'framer-motion';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const FooterContainer = styled.div`
   width: 100%;
-  padding: 2rem 0;
+  padding: 40px 0;
   display: flex;
   justify-content: center;
-  //background: linear-gradient(100.26deg, rgba(0, 102, 255, 0.05) 42.33%, rgba(150, 0, 225, 0.05) 127.07%);
+  position: relative;
+  z-index: 10;
 `;
-
 
 const FooterWrapper = styled.footer`
   width: 100%;
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 24px;
   align-items: center;
-  padding: 1rem;
-  color: ${({ theme }) => theme.text_primary};
+  padding: 24px;
+  color: #f2f3f4;
 `;
 
-const Logo = styled.h1`
-  font-weight: 600;
-  font-size: 20px;
-  color: ${({ theme }) => theme.primary};
+const Logo = styled(motion.h1)`
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #854ce6;
+  letter-spacing: 1px;
 `;
 
 const Nav = styled.nav`
   width: 100%;
   max-width: 800px;
-  margin-top: 0.5rem;
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 2.5rem;
   justify-content: center;
+  margin-top: 12px;
   @media (max-width: 768px) {
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    text-align: center;
-    font-size: 12px;
+    gap: 1.5rem;
+    font-size: 14px;
   }
 `;
 
 const NavLink = styled.a`
-color: ${({ theme }) => theme.text_primary};
+  font-family: 'Outfit', sans-serif;
+  color: #f2f3f4;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.2s ease-in-out;
-  &:hover {
-    color: ${({ theme }) => theme.primary};
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #854ce6;
+    transition: width 0.3s ease;
   }
+
+  &:hover {
+    color: #854ce6;
+    &:after {
+      width: 100%;
+    }
+  }
+
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -63,32 +80,57 @@ color: ${({ theme }) => theme.text_primary};
 
 const SocialMediaIcons = styled.div`
   display: flex;
-  margin-top: 1rem;
+  gap: 20px;
+  margin-top: 24px;
 `;
 
-const SocialMediaIcon = styled.a`
-  display: inline-block;
-  margin: 0 1rem;
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.text_primary};
-  transition: color 0.2s ease-in-out;
+const SocialMediaIcon = styled(motion.a)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f2f3f4;
+  transition: all 0.3s ease;
+
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    background: rgba(133, 76, 230, 0.2);
+    border-color: #854ce6;
+    color: #854ce6;
+    transform: translateY(-5px);
   }
 `;
 
 const Copyright = styled.p`
-  margin-top: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  margin-top: 32px;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.soft2};
+  color: #b1b2b3;
   text-align: center;
+  letter-spacing: 0.5px;
 `;
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <FooterContainer>
-      <FooterWrapper>
-        <Logo>Anamika Gain</Logo>
+      <FooterWrapper
+        as={motion.footer}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <Logo
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        >
+          Anamika Gain
+        </Logo>
         <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -97,15 +139,21 @@ function Footer() {
           <NavLink href="#education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display"><FacebookIcon /></SocialMediaIcon>
-          {/* <SocialMediaIcon href={Bio.twitter} target="display"><TwitterIcon /></SocialMediaIcon> */}
-          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-          {/* <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon> */}
+          {Bio.facebook && (
+            <SocialMediaIcon href={Bio.facebook} target="_blank" whileHover={{ scale: 1.1 }}>
+              <Facebook size={22} />
+            </SocialMediaIcon>
+          )}
+          {Bio.linkedin && (
+            <SocialMediaIcon href={Bio.linkedin} target="_blank" whileHover={{ scale: 1.1 }}>
+              <Linkedin size={22} />
+            </SocialMediaIcon>
+          )}
+
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 Anamika Gain. All rights reserved.
+          &copy; {currentYear} Anamika Gain. Crafted with passion.
         </Copyright>
-
       </FooterWrapper>
     </FooterContainer>
   );

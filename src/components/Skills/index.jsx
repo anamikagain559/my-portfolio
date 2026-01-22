@@ -1,146 +1,199 @@
 import React from 'react'
 import styled from 'styled-components'
 import { skills } from '../../data/constants'
+import { motion } from 'framer-motion'
+import { Palette, Server } from 'lucide-react'
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-position: relative;
-z-index: 1;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  padding: 80px 0;
+  overflow: hidden;
 `
 
 const Wrapper = styled.div`
-position: relative;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-direction: column;
-width: 100%;
-max-width: 1100px;
-gap: 12px;
-@media (max-width: 960px) {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  gap: 12px;
+  @media (max-width: 960px) {
     flex-direction: column;
-}
+  }
 `
 
-export const Title = styled.div`
-font-size: 42px;
-text-align: center;
-font-weight: 600;
-margin-top: 20px;
+const Title = styled(motion.h2)`
+  font-family: 'Outfit', sans-serif;
+  font-size: 42px;
+  text-align: center;
+  font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
+  margin-bottom: 8px;
   @media (max-width: 768px) {
-margin-top: 12px;
-      font-size: 32px;
+    font-size: 32px;
   }
-`;
+`
 
-export const Desc = styled.div`
-    font-size: 18px;
-    text-align: center;
-    max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
-    @media (max-width: 768px) {
-        font-size: 16px;
-    }
-`;
+const Desc = styled(motion.p)`
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  max-width: 600px;
+  color: ${({ theme }) => theme.text_secondary};
+  margin-bottom: 40px;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`
 
 const SkillsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 30px;
   gap: 30px;
   justify-content: center;
 `
 
-const Skill = styled.div`
-  width: 100%;
+const StyledCard = styled(Card)`
+  flex: 1;
+  min-width: 320px;
   max-width: 500px;
-  background: ${({ theme }) => theme.card};
-  border: 0.1px solid #854CE6;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-  border-radius: 16px;
-  padding: 18px 36px;
+  background-color: rgba(23, 23, 33, 0.5) !important;
+  border: 1px solid rgba(133, 76, 230, 0.1) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 20px !important;
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+
+  &:hover {
+    border-color: #854ce6 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(133, 76, 230, 0.1) !important;
+  }
+
   @media (max-width: 768px) {
-    max-width: 400px;
-    padding: 10px 36px;
+    max-width: 100%;
+    min-width: 100%;
   }
-  @media (max-width: 500px) {
-    max-width: 330px;
-    padding: 10px 36px;
-  }
-
-
 `
 
-const SkillTitle = styled.h2`
-  font-size: 28px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
-  margin-bottom: 20px;
-  text-align: center;
+const CategoryHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+`
+
+const IconWrapper = styled.div`
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(133, 76, 230, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #854ce6;
 `
 
 const SkillList = styled.div`
   display: flex;
-  justify-content: center; 
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
 `
 
-const SkillItem = styled.div`
-  font-size: 16px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
+const SkillItem = styled(motion.div)`
+  font-size: 15px;
+  font-weight: 500;
+  color: #f2f3f4;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #854ce6;
+    background: rgba(133, 76, 230, 0.05);
+  }
+
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 8px 12px;
-  }
-  @media (max-width: 500px) {
-    font-size: 14px;
-    padding: 6px 12px;
+    padding: 8px 14px;
   }
 `
 
 const SkillImage = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 `
-
 
 const Skills = () => {
   return (
     <Container id="skills">
       <Wrapper>
-        <Title>Skills</Title>
-        <Desc>Here are some of my skills on which I have been working on for the past 2 years.
+        <Title
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          Tech Stack
+        </Title>
+        <Desc
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          The tools I use to bring ideas to life
         </Desc>
         <SkillsContainer>
-          {skills.map((skill) => (
-            <Skill>
-              <SkillTitle>{skill.title}</SkillTitle>
-              <SkillList>
-                {skill.skills.map((item) => (
-                  <SkillItem>
-                    <SkillImage src={item.image}/>
-                    {item.name}
-                  </SkillItem>
-                ))}
-              </SkillList>
-            </Skill>
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              viewport={{ once: true }}
+              style={{ flex: 1, display: 'flex', justifyContent: 'center' }}
+            >
+              <StyledCard>
+                <CategoryHeader>
+                  <IconWrapper>
+                    {skill.title.includes("Frontend") ? <Palette size={24} /> : <Server size={24} />}
+                  </IconWrapper>
+                  <CardTitle style={{ fontSize: '24px', fontWeight: '600', color: '#f2f3f4', fontFamily: "'Outfit', sans-serif" }}>
+                    {skill.title}
+                  </CardTitle>
+                </CategoryHeader>
+                <SkillList>
+                  {skill.skills.map((item, idx) => (
+                    <SkillItem
+                      key={idx}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <SkillImage src={item.image} />
+                      {item.name}
+                    </SkillItem>
+                  ))}
+                </SkillList>
+              </StyledCard>
+            </motion.div>
           ))}
-
         </SkillsContainer>
       </Wrapper>
     </Container>

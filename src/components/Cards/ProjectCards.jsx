@@ -1,49 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
+const StyledCard = styled(Card)`
+  width: 330px;
+  height: 490px;
+  background-color: rgba(23, 23, 33, 0.5) !important;
+  border: 1px solid rgba(133, 76, 230, 0.1) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 20px !important;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 20px;
 
-const Button = styled.button`
-    display: none;
-    width: 100%;
-    padding: 10px;
-    background-color: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.text_black};
-    font-size: 14px;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.8s ease-in-out;
-`
-const Card = styled.div`
-    width: 330px;
-    height: 490px;
-    background-color: ${({ theme }) => theme.card};
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 12px 4px rgba(0,0,0,0.4);
-    overflow: hidden;
-    padding: 26px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: all 0.5s ease-in-out;
-    &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
-        filter: brightness(1.1);
-    }
-    &:hover ${Button} {
-        display: block;
-    }
-`
+  &:hover {
+    border-color: #854ce6 !important;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 32px rgba(133, 76, 230, 0.2) !important;
+    filter: brightness(1.1);
+  }
+`;
 
 const Image = styled.img`
     width: 100%;
     height: 180px;
-    background-color: ${({ theme }) => theme.white};
-    border-radius: 10px;
+    background-color: #fff;
+    border-radius: 12px;
     box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
+    object-fit: cover;
 `
 
 const Tags = styled.div`
@@ -55,13 +47,15 @@ const Tags = styled.div`
     margin-top: 4px;
 `
 
-const Tag = styled.span`
-    font-size: 12px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.primary};
-    background-color: ${({ theme }) => theme.primary + 15};
-    padding: 2px 8px;
-    border-radius: 10px;
+const TagBadge = styled(Badge)`
+  font-size: 10px;
+  font-weight: 500;
+  color: #854ce6 !important;
+  background-color: rgba(133, 76, 230, 0.1) !important;
+  padding: 2px 8px !important;
+  border-radius: 10px !important;
+  text-transform: uppercase;
+  border: none !important;
 `
 
 const Details = styled.div`
@@ -74,13 +68,12 @@ const Details = styled.div`
 const Title = styled.div`
     font-size: 20px;
     font-weight: 600;
-    color: ${({ theme }) => theme.text_secondary};
+    color: #f2f3f4;
     overflow: hidden;
     display: -webkit-box;
     max-width: 100%;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
     text-overflow: ellipsis;
 `
 
@@ -94,10 +87,9 @@ const Date = styled.div`
     }
 `
 
-
 const Description = styled.div`
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 99};
+    color: #b1b2b3;
     overflow: hidden;
     margin-top: 8px;
     display: -webkit-box;
@@ -117,32 +109,38 @@ const Avatar = styled.img`
     height: 38px;
     border-radius: 50%;
     margin-left: -10px;
-    background-color: ${({ theme }) => theme.white};
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border: 3px solid ${({ theme }) => theme.card};
+    border: 3px solid #171721;
 `
 
-const ProjectCards = ({project,setOpenModal}) => {
+const ProjectCards = ({ project, setOpenModal }) => {
     return (
-        <Card onClick={() => setOpenModal({state: true, project: project})}>
-            <Image src={project.image}/>
-            <Tags>
-                {project.tags?.map((tag, index) => (
-                <Tag>{tag}</Tag>
-                ))}
-            </Tags>
-            <Details>
-                <Title>{project.title}</Title>
-                <Date>{project.date}</Date>
-                <Description>{project.description}</Description>
-            </Details>
-            <Members>
-                {project.member?.map((member) => (
-                    <Avatar src={member.img}/>
-                ))}
-            </Members>
-            {/* <Button>View Project</Button> */}
-        </Card>
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+        >
+            <StyledCard onClick={() => setOpenModal({ state: true, project: project })}>
+                <Image src={project.image} />
+                <Tags>
+                    {project.tags?.map((tag, index) => (
+                        <TagBadge key={index} variant="outline">{tag}</TagBadge>
+                    ))}
+                </Tags>
+                <Details>
+                    <Title>{project.title}</Title>
+                    <Date>{project.date}</Date>
+                    <Description>{project.description}</Description>
+                </Details>
+                <Members>
+                    {project.member?.map((member, index) => (
+                        <Avatar key={index} src={member.img} />
+                    ))}
+                </Members>
+            </StyledCard>
+        </motion.div>
     )
 }
 
