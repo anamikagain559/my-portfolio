@@ -8,10 +8,8 @@ export const Bio = {
     "Crafting high-performance digital experiences with modern web technologies. Specialized in building scalable applications with elegant architectures.",
   github: "https://github.com/anamikagain559",
   resume:
-    "https://drive.google.com/file/d/1VYaNM_i7G8pH0sjtwkE6cgv4I2LB8sfd/view?usp=drive_link",
+    "https://drive.google.com/file/d/1528V4u-qehZRmQoAQw5bW_GezBI9IlG_/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/anamika-anu/",
-  twitter: "https://twitter.com/RishavChanda",
-  insta: "https://www.instagram.com/rishav_chanda/",
   facebook: "https://www.facebook.com/profile.php?id=100004742897929",
 };
 
@@ -174,7 +172,7 @@ export const projects = [
     ],
   },
   {
-    id: 0,
+    id: 1,
     title: "QuickBite",
     date: "Oct 2024",
     description:
@@ -195,7 +193,7 @@ export const projects = [
     ],
   },
   {
-    id: 1,
+    id: 4,
     title: "HomeHaven",
     date: "may 2024",
     description:
@@ -266,7 +264,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 0,
     title: "TravelBuddy",
     date: "january 2025",
     description:
@@ -280,7 +278,7 @@ export const projects = [
     member: [
       {
         name: "Anamika Gain",
-        img: "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
+        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
         linkedin: "https://www.linkedin.com/in/anamika-anu/",
         github: "https://github.com/anamikagain559/Travel-Buddy.git",
       }
