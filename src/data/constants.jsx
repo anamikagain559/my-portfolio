@@ -148,142 +148,162 @@ export const education = [
   },
 ];
 
-export const projects = [
+export const projects = [{
+  id: 0,
+  title: "SUNFLOWER",
+  date: "january 2026",
+  description:
+    "A premium, full-stack restaurant management dashboard designed for seamless kitchen operations, guest reservations, and table management. Built with a modern tech stack focused on performance, aesthetics, and real-time data integration.",
+  image:
+    "https://i.ibb.co.com/HTBSBYrJ/screencapture-restaurant-management-frontend-two-vercel-app-2026-03-29-23-36-54.png",
+  tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Tailwind"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Restaurant-management-project",
+  webapp: "https://restaurant-management-frontend-two.vercel.app/",
+  member: [
+    {
+      name: ["Anamika Gain"],
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559",
+    }
+  ],
+},
 
-  {
-    id: 0,
-    title: "ThaiMart Store",
-    date: "january 2025",
-    description:
-      "Thaimart is an eCommerce web app developed with ZaimahTech, featuring user and admin authentication, a wishlist system, and product management. It offers a smooth and efficient online shopping experience.",
-    image:
-      "https://i.ibb.co/0VfQSgQ2/screencapture-thaimart-store-2025-06-24-15-50-47.png",
-    tags: ["Laravel", "MySql", "bootstrap", "jquery", "popper.js"],
-    category: "web app",
-    github: "",
-    webapp: "https://thaimart.store/",
-    member: [
-      {
-        name: ["Anamika Gain"],
-        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-        linkedin: "https://www.linkedin.com/in/anamika-anu/",
-        github: "https://github.com/anamikagain559",
-      }
-    ],
-  },
-  {
-    id: 1,
-    title: "QuickBite",
-    date: "Oct 2024",
-    description:
-      "QuickBite is a restaurant management web app with user and admin authentication, live chat, and a restaurant review and rating system. It enables real-time interaction and efficient restaurant feedback management.",
-    image:
-      "https://i.ibb.co/S4yCDgvw/screencapture-quick-bites-tau-vercel-app-2025-06-24-14-40-32.png",
-    tags: ["Next Js", "MongoDb", "Node Js", "Express Js", "Tailwind"],
-    category: "web app",
-    github: "https://github.com/sojibislam9878/quick_bites.git",
-    webapp: "https://quick-bites-tau.vercel.app/",
-    member: [
-      {
-        name: ["Anamika Gain", "Sojib Islam", "Akbor Shanto", "Safwan Hossain", "Omar Farok", "Rakib Hasan"],
-        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-        linkedin: "https://www.linkedin.com/in/anamika-anu/",
-        github: "https://github.com/anamikagain559",
-      }
-    ],
-  },
-  {
-    id: 4,
-    title: "HomeHaven",
-    date: "may 2024",
-    description:
-      "HomeHaven is a cutting-edge real estate project designed to redefine the way people find their dream homes. With a focus on innovation, convenience, and exceptional service, HomeHaven offers a seamless and personalized experience for both buyers and sellers in the competitive real estate market.",
-    image:
-      "https://i.ibb.co/fXgFkBf/2024-07-04-14-13-55.png",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Tailwind"],
-    category: "web app",
-    github: "https://github.com/anamikagain559/HomeHaven.git",
-    webapp: "https://real-estate-a2d60.web.app/",
-    member: [
-      {
-        name: "Anamika Gain",
-        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-        linkedin: "https://www.linkedin.com/in/anamika-anu/",
-        github: "https://github.com/anamikagain559",
-      }
-    ],
-  },
-  {
-    id: 2,
-    title: "Infinite Insights",
-    date: "May 2024 ",
-    description:
-      "Infinite Insights, a dynamic platform designed to inspire and inform. Our blog covers a wide array of topics, from cutting-edge technology to lifestyle trends, ensuring there's something for everyone. Dive into our curated content and save your favorite reads with our customizable wishlist feature. Enjoy a seamless, personalized experience with easy login/logout functionality.",
-    image:
-      "https://i.ibb.co/vsz54y2/Blog-Website.png",
-    tags: [
-      "React Js",
-      "MongoDb",
-      "Node Js",
-      "Express Js",
-      "Tailwind",
-      "DaizyUI",
-      "FireBase Auth"
-    ],
-    category: "web app",
-    github: "https://github.com/anamikagain559/Blog-Website.git",
-    webapp: "https://blog-website-19aef.web.app/",
-    member: [
-      {
-        name: "Anamika Gain",
-        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-        linkedin: "https://www.linkedin.com/in/anamika-anu/",
-        github: "https://github.com/anamikagain559",
-      }
-    ],
-  },
-  {
-    id: 3,
-    title: "Explore Asia",
-    date: "Mar 2024",
-    description:
-      "Explore Asia is your premier destination for all things travel-related in Asia. As a comprehensive tours and travel website, Explore Asia caters to travel companies looking to showcase their destinations and attractions across the diverse continent of Asia.",
-    image:
-      "https://i.ibb.co/LdBQVK2/Travel-Website.png",
-    tags: ["Reactjs", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "FireBase Auth"],
-    category: "web app",
-    github: "https://github.com/anamikagain559/Explore-asis.git",
-    webapp: "https://travel-website-c9b74.web.app/",
-    member: [
-      {
-        name: "Anamika Gain",
-        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-        linkedin: "https://www.linkedin.com/in/anamika-anu/",
-        github: "https://github.com/anamikagain559",
-      }
-    ],
-  },
-  {
-    id: 0,
-    title: "TravelBuddy",
-    date: "january 2025",
-    description:
-      "A full-stack social travel platform that helps travelers find compatible travel buddies, plan trips together, and build meaningful connections. The platform blends social networking, travel planning, and subscription-based premium features to turn solo trips into shared adventures.",
-    image:
-      "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
-    tags: ["Next js", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "Type"],
-    category: "web app",
-    github: "https://github.com/anamikagain559/Travel-Buddy.git",
-    webapp: "https://travel-buddy-azure.vercel.app",
-    member: [
-      {
-        name: "Anamika Gain",
-        img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-        linkedin: "https://www.linkedin.com/in/anamika-anu/",
-        github: "https://github.com/anamikagain559/Travel-Buddy.git",
-      }
-    ],
-  }
+{
+  id: 0,
+  title: "ThaiMart Store",
+  date: "january 2025",
+  description:
+    "Thaimart is an eCommerce web app developed with ZaimahTech, featuring user and admin authentication, a wishlist system, and product management. It offers a smooth and efficient online shopping experience.",
+  image:
+    "https://i.ibb.co/0VfQSgQ2/screencapture-thaimart-store-2025-06-24-15-50-47.png",
+  tags: ["Laravel", "MySql", "bootstrap", "jquery", "popper.js"],
+  category: "web app",
+  github: "",
+  webapp: "https://thaimart.store/",
+  member: [
+    {
+      name: ["Anamika Gain"],
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559",
+    }
+  ],
+},
+{
+  id: 1,
+  title: "QuickBite",
+  date: "Oct 2024",
+  description:
+    "QuickBite is a restaurant management web app with user and admin authentication, live chat, and a restaurant review and rating system. It enables real-time interaction and efficient restaurant feedback management.",
+  image:
+    "https://i.ibb.co/S4yCDgvw/screencapture-quick-bites-tau-vercel-app-2025-06-24-14-40-32.png",
+  tags: ["Next Js", "MongoDb", "Node Js", "Express Js", "Tailwind"],
+  category: "web app",
+  github: "https://github.com/sojibislam9878/quick_bites.git",
+  webapp: "https://quick-bites-tau.vercel.app/",
+  member: [
+    {
+      name: ["Anamika Gain", "Sojib Islam", "Akbor Shanto", "Safwan Hossain", "Omar Farok", "Rakib Hasan"],
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559",
+    }
+  ],
+},
+{
+  id: 4,
+  title: "HomeHaven",
+  date: "may 2024",
+  description:
+    "HomeHaven is a cutting-edge real estate project designed to redefine the way people find their dream homes. With a focus on innovation, convenience, and exceptional service, HomeHaven offers a seamless and personalized experience for both buyers and sellers in the competitive real estate market.",
+  image:
+    "https://i.ibb.co/fXgFkBf/2024-07-04-14-13-55.png",
+  tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Tailwind"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/HomeHaven.git",
+  webapp: "https://real-estate-a2d60.web.app/",
+  member: [
+    {
+      name: "Anamika Gain",
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559",
+    }
+  ],
+},
+{
+  id: 2,
+  title: "Infinite Insights",
+  date: "May 2024 ",
+  description:
+    "Infinite Insights, a dynamic platform designed to inspire and inform. Our blog covers a wide array of topics, from cutting-edge technology to lifestyle trends, ensuring there's something for everyone. Dive into our curated content and save your favorite reads with our customizable wishlist feature. Enjoy a seamless, personalized experience with easy login/logout functionality.",
+  image:
+    "https://i.ibb.co/vsz54y2/Blog-Website.png",
+  tags: [
+    "React Js",
+    "MongoDb",
+    "Node Js",
+    "Express Js",
+    "Tailwind",
+    "DaizyUI",
+    "FireBase Auth"
+  ],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Blog-Website.git",
+  webapp: "https://blog-website-19aef.web.app/",
+  member: [
+    {
+      name: "Anamika Gain",
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559",
+    }
+  ],
+},
+{
+  id: 3,
+  title: "Explore Asia",
+  date: "Mar 2024",
+  description:
+    "Explore Asia is your premier destination for all things travel-related in Asia. As a comprehensive tours and travel website, Explore Asia caters to travel companies looking to showcase their destinations and attractions across the diverse continent of Asia.",
+  image:
+    "https://i.ibb.co/LdBQVK2/Travel-Website.png",
+  tags: ["Reactjs", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "FireBase Auth"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Explore-asis.git",
+  webapp: "https://travel-website-c9b74.web.app/",
+  member: [
+    {
+      name: "Anamika Gain",
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559",
+    }
+  ],
+},
+{
+  id: 0,
+  title: "TravelBuddy",
+  date: "january 2025",
+  description:
+    "A full-stack social travel platform that helps travelers find compatible travel buddies, plan trips together, and build meaningful connections. The platform blends social networking, travel planning, and subscription-based premium features to turn solo trips into shared adventures.",
+  image:
+    "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
+  tags: ["Next js", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "Type"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Travel-Buddy.git",
+  webapp: "https://travel-buddy-azure.vercel.app",
+  member: [
+    {
+      name: "Anamika Gain",
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559/Travel-Buddy.git",
+    }
+  ],
+}
 
 ];
 
