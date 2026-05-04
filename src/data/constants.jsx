@@ -172,12 +172,53 @@ export const projects = [{
 
 {
   id: 1,
+  title: "Team Hub",
+  date: "May 2026",
+  description: "A premium, full-stack collaborative platform designed for high-performance teams to manage goals, announcements, and action items in real-time. Built with a modern aesthetic, robust monorepo architecture, and optimized for performance.",
+  image:
+    "https://i.ibb.co.com/Rk2kkN8n/team-hub.png",
+  tags: ["Next Js", "Express", "PostgreSql", "Tailwind Css", "Prisma"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Team-Hub.git",
+  webapp: "https://web-production-12fe.up.railway.app",
+  member: [
+    {
+      name: ["Anamika Gain"],
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559/Team-Hub.git",
+    }
+  ],
+},
+{
+  id: 2,
+  title: "Online Learning Management System",
+  date: "May 2026",
+  description: "LearnHub is a full-stack, premium Online Learning Management System (LMS) designed to bridge the gap between expert instructors and passionate learners.",
+  image:
+    "https://i.ibb.co.com/TqKhgKT6/screencapture-online-learning-management-system-f-vercel-app-2026-05-04-19-23-44.png",
+  tags: ["Next Js", "Express", "MongoDB", "Tailwind Css", "Mongoose"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Online-Learning-management-system-Frontend.git",
+  webapp: "https://online-learning-management-system-f.vercel.app",
+  member: [
+    {
+      name: ["Anamika Gain"],
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559/Online-Learning-management-system-Frontend.git",
+    }
+  ],
+},
+
+{
+  id: 3,
   title: "HappyMart",
   date: "january 2022",
   description:
     "HappyMart is an eCommerce web app developed with ZaimahTech, featuring user and admin authentication, a wishlist system, and product management. It offers a smooth and efficient online shopping experience.",
   image:
-    "https://i.ibb.co/0VfQSgQ2/screencapture-thaimart-store-2025-06-24-15-50-47.png",
+    "https://i.ibb.co.com/NRBCDJy/Screenshot-2026-03-31-162123.png",
   tags: ["Laravel", "MySql", "bootstrap", "jquery", "popper.js"],
   category: "web app",
   github: "",
@@ -190,9 +231,29 @@ export const projects = [{
       github: "https://github.com/anamikagain559",
     }
   ],
+}, {
+  id: 4,
+  title: "TravelBuddy",
+  date: "january 2025",
+  description:
+    "A full-stack social travel platform that helps travelers find compatible travel buddies, plan trips together, and build meaningful connections. The platform blends social networking, travel planning, and subscription-based premium features to turn solo trips into shared adventures.",
+  image:
+    "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
+  tags: ["Next js", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "Type"],
+  category: "web app",
+  github: "https://github.com/anamikagain559/Travel-Buddy.git",
+  webapp: "https://travel-buddy-azure.vercel.app",
+  member: [
+    {
+      name: "Anamika Gain",
+      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
+      linkedin: "https://www.linkedin.com/in/anamika-anu/",
+      github: "https://github.com/anamikagain559/Travel-Buddy.git",
+    }
+  ],
 },
 {
-  id: 2,
+  id: 5,
   title: "QuickBite",
   date: "Oct 2024",
   description:
@@ -213,7 +274,7 @@ export const projects = [{
   ],
 },
 {
-  id: 3,
+  id: 6,
   title: "HomeHaven",
   date: "may 2024",
   description:
@@ -234,7 +295,7 @@ export const projects = [{
   ],
 },
 {
-  id: 4,
+  id: 7,
   title: "Infinite Insights",
   date: "May 2024 ",
   description:
@@ -263,7 +324,7 @@ export const projects = [{
   ],
 },
 {
-  id: 5,
+  id: 8,
   title: "Explore Asia",
   date: "Mar 2024",
   description:
@@ -283,27 +344,7 @@ export const projects = [{
     }
   ],
 },
-{
-  id: 6,
-  title: "TravelBuddy",
-  date: "january 2025",
-  description:
-    "A full-stack social travel platform that helps travelers find compatible travel buddies, plan trips together, and build meaningful connections. The platform blends social networking, travel planning, and subscription-based premium features to turn solo trips into shared adventures.",
-  image:
-    "https://i.ibb.co.com/7t7MLMPL/screencapture-travel-buddy-azure-vercel-app-2026-01-22-23-13-31.png",
-  tags: ["Next js", "Tailwind CSS", "DaizyUI", "Express js", "Mongo DB", "Type"],
-  category: "web app",
-  github: "https://github.com/anamikagain559/Travel-Buddy.git",
-  webapp: "https://travel-buddy-azure.vercel.app",
-  member: [
-    {
-      name: "Anamika Gain",
-      img: "https://i.ibb.co/1b4b32G/DSC-0095-copyd.jpg",
-      linkedin: "https://www.linkedin.com/in/anamika-anu/",
-      github: "https://github.com/anamikagain559/Travel-Buddy.git",
-    }
-  ],
-}
+
 
 ];
 
