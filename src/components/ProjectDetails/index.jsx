@@ -27,7 +27,7 @@ border-radius: 20px;
 margin: 50px 12px;
 height: min-content;
 background-color: #171721;
-border: 1px solid rgba(133, 76, 230, 0.1);
+border: 1px solid rgba(59, 130, 246, 0.1);
 color: #f2f3f4;
 padding: 32px;
 display: flex;
@@ -98,8 +98,8 @@ const Tags = styled.div`
 const TagBadge = styled(Badge)`
   font-size: 12px;
   font-weight: 500;
-  color: #854ce6 !important;
-  background-color: rgba(133, 76, 230, 0.1) !important;
+  color: #3b82f6 !important;
+  background-color: rgba(59, 130, 246, 0.1) !important;
   padding: 4px 12px !important;
   border-radius: 8px !important;
   text-transform: uppercase;
@@ -129,7 +129,7 @@ const MemberImage = styled.img`
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
-    border: 2px solid rgba(133, 76, 230, 0.2);
+    border: 2px solid rgba(59, 130, 246, 0.2);
 `;
 
 const MemberName = styled.div`
@@ -158,7 +158,7 @@ const Button = styled.a`
     color: #f2f3f4;
     padding: 12px 24px;
     border-radius: 12px;
-    background-color: #854ce6;
+    background-color: #3b82f6;
     display: flex;
     align-items: center;
     justify-content: center;

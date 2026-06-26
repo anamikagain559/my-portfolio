@@ -14,6 +14,7 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ProjectDetails from "./components/ProjectDetails";
 import FloatingNav from "./components/FloatingNav";
+import Preloader from "./components/Preloader";
 import styled from "styled-components";
 
 const Body = styled.div`
@@ -30,11 +31,21 @@ const Wrapper = styled.div`
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [openModal, setOpenModal] = useState({ state: false, project: null });
-  console.log(openModal)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [loading]);
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Router >
-        <Navbar />
+      <Preloader loading={loading} setLoading={setLoading} />
+      <Router>
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Body>
           <HeroSection />
           <Wrapper>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GithubButton, ButtonContainer, MobileIcon, MobileMenu, MobileLink, ProfileIcon } from './NavbarStyledComponent'
-import { FaBars, FaGithub } from 'react-icons/fa';
+import { FaBars, FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
 import { CloseRounded } from '@mui/icons-material';
 import { useTheme } from 'styled-components';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
   const theme = useTheme()
@@ -68,17 +68,34 @@ const Navbar = () => {
 
         <ButtonContainer>
           <GithubButton href={Bio.github} target="_blank" style={{ border: 'none', background: 'transparent', padding: '0', color: 'inherit' }}>
-            <FaGithub size={30} style={{ color: '#b1b2b3', transition: 'all 0.3s ease', cursor: 'pointer' }}
+            <FaGithub size={30} style={{ color: theme.text_secondary, transition: 'all 0.3s ease', cursor: 'pointer' }}
               onMouseOver={(e) => {
-                e.currentTarget.style.color = '#854ce6';
+                e.currentTarget.style.color = theme.primary;
                 e.currentTarget.style.transform = 'scale(1.1)';
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.color = '#b1b2b3';
+                e.currentTarget.style.color = theme.text_secondary;
                 e.currentTarget.style.transform = 'scale(1)';
               }}
             />
           </GithubButton>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setDarkMode(!darkMode)}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: theme.text_secondary,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginLeft: '16px'
+            }}
+          >
+            {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+          </motion.button>
         </ButtonContainer>
 
         <AnimatePresence>

@@ -5,11 +5,22 @@ import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const FooterContainer = styled.div`
   width: 100%;
-  padding: 40px 0;
+  padding: 60px 0 40px 0;
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 10;
+  background-color: #050505;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+  }
 `;
 
 const FooterWrapper = styled.footer`
@@ -17,7 +28,7 @@ const FooterWrapper = styled.footer`
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
   align-items: center;
   padding: 24px;
   color: #f2f3f4;
@@ -25,20 +36,24 @@ const FooterWrapper = styled.footer`
 
 const Logo = styled(motion.h1)`
   font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  color: #854ce6;
-  letter-spacing: 1px;
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
 `;
 
-const Nav = styled.nav`
+const Nav = styled(motion.nav)`
   width: 100%;
   max-width: 800px;
   display: flex;
   flex-direction: row;
-  gap: 2.5rem;
+  gap: 3rem;
   justify-content: center;
-  margin-top: 12px;
+  
   @media (max-width: 768px) {
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -47,68 +62,71 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-  font-family: 'Outfit', sans-serif;
-  color: #f2f3f4;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
   &:after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #854ce6;
-    transition: width 0.3s ease;
+    bottom: -6px;
+    left: 50%;
+    background-color: #3b82f6;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #3b82f6;
   }
 
   &:hover {
-    color: #854ce6;
+    color: #ffffff;
     &:after {
       width: 100%;
     }
   }
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;
 
-const SocialMediaIcons = styled.div`
+const SocialMediaIcons = styled(motion.div)`
   display: flex;
-  gap: 20px;
-  margin-top: 24px;
+  gap: 24px;
+  margin-top: 16px;
 `;
 
 const SocialMediaIcon = styled(motion.a)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f2f3f4;
-  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &:hover {
-    background: rgba(133, 76, 230, 0.2);
-    border-color: #854ce6;
-    color: #854ce6;
-    transform: translateY(-5px);
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #3b82f6;
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
   }
 `;
 
-const Copyright = styled.p`
-  font-family: 'Inter', sans-serif;
-  margin-top: 32px;
+const Copyright = styled(motion.p)`
+  margin-top: 24px;
   font-size: 0.9rem;
-  color: #b1b2b3;
+  color: rgba(255, 255, 255, 0.4);
   text-align: center;
   letter-spacing: 0.5px;
 `;
@@ -116,42 +134,57 @@ const Copyright = styled.p`
 function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } }
+  };
+
   return (
     <FooterContainer>
       <FooterWrapper
         as={motion.footer}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
       >
-        <Logo
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
-        >
+        <Logo variants={itemVariants}>
           Anamika Gain
         </Logo>
-        <Nav>
+        
+        <Nav variants={itemVariants}>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#education">Education</NavLink>
         </Nav>
-        <SocialMediaIcons>
+        
+        <SocialMediaIcons variants={itemVariants}>
           {Bio.facebook && (
-            <SocialMediaIcon href={Bio.facebook} target="_blank" whileHover={{ scale: 1.1 }}>
-              <Facebook size={22} />
+            <SocialMediaIcon href={Bio.facebook} target="_blank">
+              <Facebook size={20} />
             </SocialMediaIcon>
           )}
           {Bio.linkedin && (
-            <SocialMediaIcon href={Bio.linkedin} target="_blank" whileHover={{ scale: 1.1 }}>
-              <Linkedin size={22} />
+            <SocialMediaIcon href={Bio.linkedin} target="_blank">
+              <Linkedin size={20} />
             </SocialMediaIcon>
           )}
-
         </SocialMediaIcons>
-        <Copyright>
+        
+        <Copyright variants={itemVariants}>
           &copy; {currentYear} Anamika Gain. Crafted with passion.
         </Copyright>
       </FooterWrapper>

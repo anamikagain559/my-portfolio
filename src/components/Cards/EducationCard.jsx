@@ -1,39 +1,64 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card } from "@/components/ui/card"
 
 const StyledCard = styled(Card)`
   width: 100%;
   max-width: 900px;
-  background-color: rgba(23, 23, 33, 0.5) !important;
-  border: 1px solid rgba(133, 76, 230, 0.1) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
-  backdrop-filter: blur(8px);
-  border-radius: 20px !important;
-  transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px !important;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
 
   &:hover {
-    border-color: #854ce6 !important;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px rgba(133, 76, 230, 0.1) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    background: rgba(59, 130, 246, 0.03) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(59, 130, 246, 0.1) !important;
+  }
+`;
+
+const GlowLight = styled.div`
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(59, 130, 246, 0.05);
+  filter: blur(60px);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  transition: all 0.6s ease;
+  pointer-events: none;
+
+  ${StyledCard}:hover & {
+    background: rgba(59, 130, 246, 0.15);
+    transform: scale(1.5);
   }
 `;
 
 const Image = styled.img`
-    height: 120px;
-    width: 120px;
-    background-color: #fff;
+    height: 70px;
+    width: 70px;
     border-radius: 16px;
-    object-fit: contain;
-    padding: 12px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    
+    ${StyledCard}:hover & {
+      transform: scale(1.1) rotate(-2deg);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+    
     @media only screen and (max-width: 768px){
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
     }
 `;
 
@@ -41,6 +66,7 @@ const Body = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    z-index: 2;
 `;
 
 const Header = styled.div`
@@ -49,22 +75,35 @@ const Header = styled.div`
     align-items: flex-start;
     width: 100%;
     gap: 12px;
+    
+    @media only screen and (max-width: 640px){
+      flex-direction: column;
+      gap: 8px;
+    }
 `;
 
 const Name = styled.div`
-    font-size: 20px;
-    font-weight: 700;
-    color: #f2f3f4;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+    
+    ${StyledCard}:hover & {
+      color: #3b82f6;
+    }
+    
     @media only screen and (max-width: 768px){
-        font-size: 16px;
+        font-size: 20px;
     }
 `;
 
 const Degree = styled.div`
     font-size: 16px;
     font-weight: 600;
-    color: #854ce6;
+    color: #b1b2b3;
     margin-top: 4px;
+    letter-spacing: 0.5px;
     @media only screen and (max-width: 768px){
         font-size: 14px;
     }
@@ -72,63 +111,71 @@ const Degree = styled.div`
 
 const DateTag = styled.div`
     font-size: 12px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary};
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 6px 16px;
+    font-weight: 600;
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 8px 16px;
     border-radius: 50px;
     white-space: nowrap;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    
     @media only screen and (max-width: 768px){
         font-size: 10px;
+        padding: 6px 12px;
     }
 `;
 
-const Description = styled.div`
-    font-size: 15px;
-    line-height: 1.6;
-    color: #b1b2b3;
-    margin: 12px 0;
+const Grade = styled.div`
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    display: inline-block;
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    b {
+      color: #3b82f6;
+      font-weight: 700;
+    }
+    
     @media only screen and (max-width: 768px){
         font-size: 13px;
     }
 `;
 
-const Skills = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 8px;
-`;
-
-const SkillBadge = styled(Badge)`
-  font-size: 11px;
-  font-weight: 600;
-  color: #f2f3f4 !important;
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 5px 14px !important;
-  border-radius: 8px !important;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  
-  &:hover {
-    background-color: rgba(133, 76, 230, 0.1) !important;
-    border-color: #854ce6 !important;
-  }
+const Description = styled.div`
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 16px 0 0 0;
+    font-weight: 400;
+    @media only screen and (max-width: 768px){
+        font-size: 14px;
+    }
 `;
 
 const EducationCard = ({ education }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+            viewport={{ once: true, margin: "-50px" }}
             style={{ width: '100%' }}
         >
             <StyledCard>
-                <div style={{ display: 'flex', gap: '20px', padding: '12px' }}>
-                    <Image src={education.img} />
+                <GlowLight />
+                <div style={{ display: 'flex', gap: '24px', padding: '32px', position: 'relative', zIndex: 2 }}>
+                    <div style={{ position: 'relative' }}>
+                        <Image src={education.img} />
+                    </div>
                     <Body>
                         <Header>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -137,14 +184,10 @@ const EducationCard = ({ education }) => {
                             </div>
                             <DateTag>{education.date}</DateTag>
                         </Header>
+                        <Grade><b>Grade:</b> {education.grade}</Grade>
                         <Description>
                             {education.desc}
                         </Description>
-                        <Skills>
-                            {education.skills?.map((skill, index) => (
-                                <SkillBadge key={index} variant="outline">{skill}</SkillBadge>
-                            ))}
-                        </Skills>
                     </Body>
                 </div>
             </StyledCard>

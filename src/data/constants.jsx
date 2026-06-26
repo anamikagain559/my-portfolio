@@ -39,12 +39,12 @@ export const skills = [
       {
         name: "CSS",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
+          "https://i.ibb.co.com/bgVWKyDY/CSS3-logo-svg.png",
       },
       {
         name: "JavaScript",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+          "https://i.ibb.co.com/gYW0jYK/images.png",
       },
       {
         name: "Bootstrap",
@@ -275,16 +275,16 @@ export const projects = [{
 },
 {
   id: 6,
-  title: "HomeHaven",
-  date: "may 2024",
+  title: "Cove Cafe",
+  date: "may 2026",
   description:
-    "HomeHaven is a cutting-edge real estate project designed to redefine the way people find their dream homes. With a focus on innovation, convenience, and exceptional service, HomeHaven offers a seamless and personalized experience for both buyers and sellers in the competitive real estate market.",
+    "Cove Cafe is a modern, responsive e-commerce web application for a Hawaiian-inspired restaurant. It features a stunning UI with smooth animations, dynamic shopping cart functionality, promotional code validation, and a beautiful product showcase. Built with React and Tailwind CSS, it offers a seamless ordering experience.",
   image:
-    "https://i.ibb.co/fXgFkBf/2024-07-04-14-13-55.png",
-  tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Tailwind"],
+    "https://i.ibb.co.com/QjfFnBhQ/screencapture-ecommerce-website-liart-pi-vercel-app-2026-06-26-20-02-27.png",
+  tags: ["React Js", "Tailwind CSS", "Vite", "React Router"],
   category: "web app",
-  github: "https://github.com/anamikagain559/HomeHaven.git",
-  webapp: "https://real-estate-a2d60.web.app/",
+  github: "https://github.com/anamikagain559/ecommerce-frontend-design",
+  webapp: "",
   member: [
     {
       name: "Anamika Gain",

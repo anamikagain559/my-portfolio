@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
@@ -16,10 +16,14 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   align-items: center;
-  padding: 80px 0;
-  @media (max-width: 960px) {
-    padding: 40px 0;
-  }
+  padding: 120px 0;
+  background-color: #050505;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  overflow: hidden;
 `
 
 const Wrapper = styled.div`
@@ -31,104 +35,186 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1350px;
   gap: 12px;
+  padding: 0 24px;
 `
 
 const Title = styled(motion.h2)`
-  font-family: 'Outfit', sans-serif;
-  font-size: 42px;
+  font-size: 52px;
   text-align: center;
-  font-weight: 700;
-  color: #f2f3f4;
-  margin-bottom: 8px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  
+  /* Metallic Gradient */
+  background: linear-gradient(to right, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 36px;
   }
 `
 
 const Desc = styled(motion.p)`
-  font-family: 'Inter', sans-serif;
   font-size: 18px;
   text-align: center;
   max-width: 600px;
-  color: #b1b2b3;
-  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 60px;
+  
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `
 
 const ContactForm = styled(motion.form)`
-  width: 95%;
+  width: 100%;
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(23, 23, 33, 0.5);
-  border: 1px solid rgba(133, 76, 230, 0.1);
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  gap: 20px;
+  gap: 24px;
+  padding: 40px;
+  
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  
+  /* Smart Glow Effect that rotates */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      transparent,
+      transparent,
+      transparent,
+      rgba(59, 130, 246, 0.1)
+    );
+    animation: rotate 10s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 `
 
 const ContactTitle = styled.div`
-  font-family: 'Outfit', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #f2f3f4;
-  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  letter-spacing: -0.5px;
 `
 
+const StyledInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+`;
+
 const StyledInput = styled(Input)`
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  color: #f2f3f4 !important;
-  padding: 12px 16px !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border: none !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px 8px 0 0 !important;
+  color: #ffffff !important;
+  padding: 16px 20px !important;
   font-size: 16px !important;
   height: auto !important;
+  transition: all 0.3s ease !important;
 
   &:focus {
-    border-color: #854ce6 !important;
-    background-color: rgba(133, 76, 230, 0.05) !important;
+    background-color: rgba(59, 130, 246, 0.05) !important;
+    border-bottom: 2px solid #3b82f6 !important;
+    box-shadow: none !important;
   }
 `
 
 const StyledTextarea = styled(Textarea)`
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  color: #f2f3f4 !important;
-  padding: 12px 16px !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border: none !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px 8px 0 0 !important;
+  color: #ffffff !important;
+  padding: 16px 20px !important;
   font-size: 16px !important;
-  min-height: 120px !important;
+  min-height: 150px !important;
+  transition: all 0.3s ease !important;
+  resize: vertical;
 
   &:focus {
-    border-color: #854ce6 !important;
-    background-color: rgba(133, 76, 230, 0.05) !important;
+    background-color: rgba(59, 130, 246, 0.05) !important;
+    border-bottom: 2px solid #3b82f6 !important;
+    box-shadow: none !important;
   }
 `
+
+const flyAnimation = keyframes`
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(5px, -5px) scale(1.1); }
+  100% { transform: translate(0, 0); }
+`;
 
 const SendButton = styled(Button)`
   width: 100%;
   border-radius: 12px !important;
-  padding: 14px !important;
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px !important;
+  padding: 18px !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
-  background-color: #854ce6 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   height: auto !important;
-  margin-top: 10px;
-  transition: all 0.3s ease !important;
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Glassmorphic Button */
+  background: rgba(59, 130, 246, 0.1) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  
+  svg {
+    transition: all 0.3s ease;
+  }
 
   &:hover {
-    background-color: #9d6ef2 !important;
+    background: rgba(59, 130, 246, 0.3) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.5) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(133, 76, 230, 0.3) !important;
+    
+    svg {
+      animation: ${flyAnimation} 1s infinite ease-in-out;
+    }
   }
+`
+
+const LabelText = styled(Label)`
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 12px !important;
+  margin-left: 8px;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `
 
 const Contact = () => {
@@ -138,7 +224,7 @@ const Contact = () => {
     e.preventDefault();
     emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
       .then((result) => {
-        alert("Email sent successfully!"); // Using simple alert as toast setup might need more files
+        alert("Email sent successfully!"); 
         form.current.reset();
       }, (error) => {
         console.log(error.text);
@@ -168,30 +254,30 @@ const Contact = () => {
         <ContactForm
           ref={form}
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
           viewport={{ once: true }}
         >
-          <ContactTitle>Email Me 🚀</ContactTitle>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Label htmlFor="from_email" style={{ color: '#b1b2b3', fontSize: '14px', marginLeft: '4px' }}>Your Email</Label>
-            <StyledInput id="from_email" placeholder="email@example.com" name="from_email" required />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Label htmlFor="from_name" style={{ color: '#b1b2b3', fontSize: '14px', marginLeft: '4px' }}>Your Name</Label>
+          <ContactTitle>Let's Talk <span style={{ fontSize: '24px' }}>🚀</span></ContactTitle>
+          <StyledInputContainer>
+            <LabelText htmlFor="from_email">Email Address</LabelText>
+            <StyledInput id="from_email" placeholder="hello@example.com" name="from_email" required />
+          </StyledInputContainer>
+          <StyledInputContainer>
+            <LabelText htmlFor="from_name">Full Name</LabelText>
             <StyledInput id="from_name" placeholder="John Doe" name="from_name" required />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Label htmlFor="subject" style={{ color: '#b1b2b3', fontSize: '14px', marginLeft: '4px' }}>Subject</Label>
-            <StyledInput id="subject" placeholder="Intership Inquiry" name="subject" required />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Label htmlFor="message" style={{ color: '#b1b2b3', fontSize: '14px', marginLeft: '4px' }}>Message</Label>
-            <StyledTextarea id="message" placeholder="Type your message here..." name="message" required />
-          </div>
+          </StyledInputContainer>
+          <StyledInputContainer>
+            <LabelText htmlFor="subject">Subject</LabelText>
+            <StyledInput id="subject" placeholder="What's this about?" name="subject" required />
+          </StyledInputContainer>
+          <StyledInputContainer>
+            <LabelText htmlFor="message">Message</LabelText>
+            <StyledTextarea id="message" placeholder="Write your message here..." name="message" required />
+          </StyledInputContainer>
           <SendButton type="submit">
-            Send Message <Send size={20} style={{ marginLeft: '10px' }} />
+            Send Message <Send size={20} style={{ marginLeft: '12px' }} />
           </SendButton>
         </ContactForm>
       </Wrapper>

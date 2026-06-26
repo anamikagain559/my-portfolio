@@ -11,10 +11,8 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     align-items: center;
-    padding: 0px 0px 60px 0px;
-    @media (max-width: 960px) {
-        padding: 0px;
-    }
+    padding: 80px 0;
+    background-color: #050505;
 `;
 
 const Wrapper = styled.div`
@@ -25,43 +23,36 @@ const Wrapper = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 1000px;
-    padding: 40px 0 80px 0;
+    padding: 0 24px;
     gap: 12px;
-    @media (max-width: 960px) {
-        flex-direction: column;
-    }
 `;
 
-const Title = styled.div`
-  font-family: 'Outfit', sans-serif;
-  font-size: 42px;
-  text-align: left;
-  font-weight: 600;
-  margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  &::after {
-    content: "";
-    width: 80px;
-    height: 4px;
-    background-color: ${({ theme }) => theme.primary};
-    border-radius: 2px;
-  }
+const Title = styled.h2`
+  font-size: 52px;
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  
+  /* Metallic Gradient */
+  background: linear-gradient(to right, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
   @media (max-width: 768px) {
-      margin-top: 12px;
-      font-size: 32px;
+      font-size: 36px;
   }
 `;
 
 const Desc = styled.div`
-    font-family: 'Inter', sans-serif;
     font-size: 18px;
-    text-align: left;
-    width: 100%;
-    color: ${({ theme }) => theme.text_secondary};
-    margin-bottom: 40px;
+    text-align: center;
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 60px;
+    
     @media (max-width: 768px) {
         font-size: 16px;
     }
@@ -77,16 +68,18 @@ const ExperienceSection = styled(motion.div)`
     gap: 12px;
     position: relative;
 
+    /* Glowing timeline line */
     &::before {
         content: "";
         position: absolute;
-        left: 7.5px;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background: linear-gradient(180deg, ${({ theme }) => theme.primary} 0%, rgba(255, 255, 255, 0.1) 100%);
+        left: 20px;
+        top: 20px;
+        bottom: 20px;
+        width: 2px;
+        background: linear-gradient(180deg, transparent 0%, #3b82f6 20%, #3b82f6 80%, transparent 100%);
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         @media (max-width: 768px) {
-            left: 7.5px;
+            left: 10px;
         }
     }
 `;
@@ -95,23 +88,29 @@ const TimelineItem = styled.div`
     width: 100%;
     display: flex;
     position: relative;
-    padding-left: 28px;
+    padding-left: 60px;
     padding-bottom: 40px;
 
+    /* Glowing timeline node */
     &::before {
         content: "";
         position: absolute;
-        left: 2px;
-        top: 5px;
-        width: 12px;
-        height: 12px;
+        left: 13px;
+        top: 24px;
+        width: 16px;
+        height: 16px;
         border-radius: 50%;
-        background: ${({ theme }) => theme.primary};
-        box-shadow: 0 0 0 4px rgba(133, 76, 230, 0.1), 0 0 10px ${({ theme }) => theme.primary};
+        background: #050505;
+        border: 2px solid #3b82f6;
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), inset 0 0 5px rgba(59, 130, 246, 0.5);
         z-index: 2;
         @media (max-width: 768px) {
-            left: 2px;
+            left: 3px;
         }
+    }
+
+    @media (max-width: 768px) {
+        padding-left: 40px;
     }
 `;
 
@@ -129,22 +128,20 @@ const Experience = () => {
     return (
         <Container id="experience">
             <Wrapper>
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                    <Title>Professional Experience</Title>
-                    <ExperienceSection
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        style={{ marginTop: '40px' }}
-                    >
-                        {experiences.map((experience, index) => (
-                            <TimelineItem key={index}>
-                                <ExperienceCard experience={experience} />
-                            </TimelineItem>
-                        ))}
-                    </ExperienceSection>
-                </div>
+                <Title>Professional Experience</Title>
+                <Desc>My journey through the tech landscape.</Desc>
+                <ExperienceSection
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
+                    {experiences.map((experience, index) => (
+                        <TimelineItem key={index}>
+                            <ExperienceCard experience={experience} />
+                        </TimelineItem>
+                    ))}
+                </ExperienceSection>
             </Wrapper>
         </Container>
     )

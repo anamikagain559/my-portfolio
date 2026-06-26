@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Nav = styled.div`
-    background: rgba(10, 10, 20, 0.9);
+    background: rgba(5, 5, 5, 0.8);
     height: 70px;
     display: flex;
     align-items: center;
@@ -12,8 +12,9 @@ export const Nav = styled.div`
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     font-family: 'Outfit', sans-serif;
 `;
 
@@ -41,12 +42,18 @@ export const NavLogo = styled(LinkR)`
 `;
 
 export const Span = styled.div`
-    font-weight: 700;
-    font-size: 22px;
-    color: #f2f3f4;
+    font-weight: 800;
+    font-size: 24px;
+    background: linear-gradient(to right, #ffffff, #888888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     transition: all 0.2s ease;
+    letter-spacing: -0.5px;
     &:hover {
-      color: #854ce6;
+      background: linear-gradient(to right, #ffffff, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 `;
 
@@ -80,9 +87,9 @@ export const NavLink = styled.a`
     }
 
     &.active {
-      background: #854ce6;
+      background: #3b82f6;
       color: #fff;
-      box-shadow: 0 0 20px rgba(133, 76, 230, 0.6);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
     }
 `;
 
@@ -117,8 +124,8 @@ export const ProfileIcon = styled.div`
   transition: all 0.3s ease;
   font-size: 18px;
   &:hover {
-    background: rgba(133, 76, 230, 0.2);
-    border-color: #854ce6;
+    background: rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
     transform: scale(1.05);
   }
 `;
@@ -159,6 +166,6 @@ export const MobileLink = styled.a`
   font-size: 1.2rem;
   padding: 10px 0;
   &:hover {
-    color: #854ce6;
+    color: #3b82f6;
   }
 `;
