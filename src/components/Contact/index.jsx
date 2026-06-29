@@ -17,13 +17,14 @@ const Container = styled.div`
   z-index: 1;
   align-items: center;
   padding: 120px 0;
-  background-color: #050505;
+  background-color: ${({ theme }) => theme.bg};
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(${({ theme }) => theme.gridColor} 1px, transparent 1px),
+    linear-gradient(90deg, ${({ theme }) => theme.gridColor} 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center center;
   overflow: hidden;
+  transition: all 0.3s ease;
 `
 
 const Wrapper = styled.div`
@@ -46,8 +47,7 @@ const Title = styled(motion.h2)`
   text-transform: uppercase;
   letter-spacing: -1px;
   
-  /* Metallic Gradient */
-  background: linear-gradient(to right, #ffffff, #888888);
+  background: ${({ theme }) => theme.gradientText};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,7 +61,7 @@ const Desc = styled(motion.p)`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${({ theme }) => theme.text_secondary};
   margin-bottom: 60px;
   
   @media (max-width: 768px) {
@@ -77,17 +77,15 @@ const ContactForm = styled(motion.form)`
   gap: 24px;
   padding: 40px;
   
-  /* Glassmorphism */
-  background: rgba(255, 255, 255, 0.02);
+  background: ${({ theme }) => theme.glassBg};
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid ${({ theme }) => theme.glassBorder};
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px ${({ theme }) => theme.shadowLight};
   position: relative;
   overflow: hidden;
   
-  /* Smart Glow Effect that rotates */
   &::before {
     content: "";
     position: absolute;
@@ -99,7 +97,7 @@ const ContactForm = styled(motion.form)`
       transparent,
       transparent,
       transparent,
-      rgba(59, 130, 246, 0.1)
+      ${({ theme }) => theme.primaryGlowHover}
     );
     animation: rotate 10s linear infinite;
     z-index: -1;
@@ -114,7 +112,7 @@ const ContactForm = styled(motion.form)`
 const ContactTitle = styled.div`
   font-size: 28px;
   font-weight: 800;
-  color: #ffffff;
+  color: ${({ theme }) => theme.text_primary};
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -130,29 +128,33 @@ const StyledInputContainer = styled.div`
 `;
 
 const StyledInput = styled(Input)`
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: ${({ theme }) => theme.glassBg} !important;
   border: none !important;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 2px solid ${({ theme }) => theme.glassBorder} !important;
   border-radius: 8px 8px 0 0 !important;
-  color: #ffffff !important;
+  color: ${({ theme }) => theme.text_primary} !important;
   padding: 16px 20px !important;
   font-size: 16px !important;
   height: auto !important;
   transition: all 0.3s ease !important;
 
   &:focus {
-    background-color: rgba(59, 130, 246, 0.05) !important;
-    border-bottom: 2px solid #3b82f6 !important;
+    background-color: ${({ theme }) => theme.glassHoverBg} !important;
+    border-bottom: 2px solid ${({ theme }) => theme.primary} !important;
     box-shadow: none !important;
+  }
+  
+  &::placeholder {
+    color: ${({ theme }) => theme.text_tertiary} !important;
   }
 `
 
 const StyledTextarea = styled(Textarea)`
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: ${({ theme }) => theme.glassBg} !important;
   border: none !important;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 2px solid ${({ theme }) => theme.glassBorder} !important;
   border-radius: 8px 8px 0 0 !important;
-  color: #ffffff !important;
+  color: ${({ theme }) => theme.text_primary} !important;
   padding: 16px 20px !important;
   font-size: 16px !important;
   min-height: 150px !important;
@@ -160,9 +162,13 @@ const StyledTextarea = styled(Textarea)`
   resize: vertical;
 
   &:focus {
-    background-color: rgba(59, 130, 246, 0.05) !important;
-    border-bottom: 2px solid #3b82f6 !important;
+    background-color: ${({ theme }) => theme.glassHoverBg} !important;
+    border-bottom: 2px solid ${({ theme }) => theme.primary} !important;
     box-shadow: none !important;
+  }
+  
+  &::placeholder {
+    color: ${({ theme }) => theme.text_tertiary} !important;
   }
 `
 
@@ -185,10 +191,9 @@ const SendButton = styled(Button)`
   position: relative;
   overflow: hidden;
   
-  /* Glassmorphic Button */
-  background: rgba(59, 130, 246, 0.1) !important;
-  border: 1px solid rgba(59, 130, 246, 0.3) !important;
-  color: #ffffff !important;
+  background: ${({ theme }) => theme.primaryGlow} !important;
+  border: 1px solid ${({ theme }) => theme.primaryBorder} !important;
+  color: ${({ theme }) => theme.primary} !important;
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
   
@@ -197,9 +202,10 @@ const SendButton = styled(Button)`
   }
 
   &:hover {
-    background: rgba(59, 130, 246, 0.3) !important;
-    border-color: #3b82f6 !important;
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.5) !important;
+    background: ${({ theme }) => theme.primaryGlowHover} !important;
+    border-color: ${({ theme }) => theme.primary} !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 40px ${({ theme }) => theme.primaryBorder} !important;
     transform: translateY(-2px);
     
     svg {
@@ -209,7 +215,7 @@ const SendButton = styled(Button)`
 `
 
 const LabelText = styled(Label)`
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: ${({ theme }) => theme.text_secondary} !important;
   font-size: 12px !important;
   margin-left: 8px;
   font-weight: 600 !important;

@@ -12,7 +12,8 @@ const Container = styled.div`
     z-index: 1;
     align-items: center;
     padding: 80px 0;
-    background-color: #050505;
+    background-color: ${({ theme }) => theme.bg};
+    transition: all 0.3s ease;
 `;
 
 const Wrapper = styled.div`
@@ -35,8 +36,7 @@ const Title = styled.h2`
   text-transform: uppercase;
   letter-spacing: -1px;
   
-  /* Metallic Gradient */
-  background: linear-gradient(to right, #ffffff, #888888);
+  background: ${({ theme }) => theme.gradientText};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,7 +50,7 @@ const Desc = styled.div`
     font-size: 18px;
     text-align: center;
     max-width: 600px;
-    color: rgba(255, 255, 255, 0.6);
+    color: ${({ theme }) => theme.text_secondary};
     margin-bottom: 60px;
     
     @media (max-width: 768px) {
@@ -68,7 +68,6 @@ const ExperienceSection = styled(motion.div)`
     gap: 12px;
     position: relative;
 
-    /* Glowing timeline line */
     &::before {
         content: "";
         position: absolute;
@@ -76,8 +75,8 @@ const ExperienceSection = styled(motion.div)`
         top: 20px;
         bottom: 20px;
         width: 2px;
-        background: linear-gradient(180deg, transparent 0%, #3b82f6 20%, #3b82f6 80%, transparent 100%);
-        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        background: linear-gradient(180deg, transparent 0%, ${({ theme }) => theme.primary} 20%, ${({ theme }) => theme.primary} 80%, transparent 100%);
+        box-shadow: 0 0 15px ${({ theme }) => theme.primaryBorder};
         @media (max-width: 768px) {
             left: 10px;
         }
@@ -91,7 +90,6 @@ const TimelineItem = styled.div`
     padding-left: 60px;
     padding-bottom: 40px;
 
-    /* Glowing timeline node */
     &::before {
         content: "";
         position: absolute;
@@ -100,9 +98,9 @@ const TimelineItem = styled.div`
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background: #050505;
-        border: 2px solid #3b82f6;
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), inset 0 0 5px rgba(59, 130, 246, 0.5);
+        background: ${({ theme }) => theme.bg};
+        border: 2px solid ${({ theme }) => theme.primary};
+        box-shadow: 0 0 10px ${({ theme }) => theme.primary}, inset 0 0 5px ${({ theme }) => theme.primaryBorder};
         z-index: 2;
         @media (max-width: 768px) {
             left: 3px;

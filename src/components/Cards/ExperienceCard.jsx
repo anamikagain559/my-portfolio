@@ -7,9 +7,9 @@ import { Badge } from "@/components/ui/badge"
 const StyledCard = styled(Card)`
   width: 100%;
   max-width: 900px;
-  background-color: rgba(255, 255, 255, 0.02) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  background-color: ${({ theme }) => theme.glassBg} !important;
+  border: 1px solid ${({ theme }) => theme.glassBorder} !important;
+  box-shadow: 0 4px 30px ${({ theme }) => theme.shadowLight} !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 24px !important;
@@ -19,10 +19,10 @@ const StyledCard = styled(Card)`
   overflow: hidden;
 
   &:hover {
-    border-color: rgba(59, 130, 246, 0.3) !important;
-    background: rgba(59, 130, 246, 0.03) !important;
+    border-color: ${({ theme }) => theme.primaryBorder} !important;
+    background: ${({ theme }) => theme.glassHoverBg} !important;
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(59, 130, 246, 0.1) !important;
+    box-shadow: 0 20px 50px ${({ theme }) => theme.shadow}, inset 0 0 20px ${({ theme }) => theme.primaryGlow} !important;
   }
 `;
 
@@ -30,7 +30,7 @@ const GlowLight = styled.div`
   position: absolute;
   width: 250px;
   height: 250px;
-  background: rgba(59, 130, 246, 0.05);
+  background: ${({ theme }) => theme.primaryGlow};
   filter: blur(60px);
   border-radius: 50%;
   top: -100px;
@@ -39,7 +39,7 @@ const GlowLight = styled.div`
   pointer-events: none;
 
   ${StyledCard}:hover & {
-    background: rgba(59, 130, 246, 0.15);
+    background: ${({ theme }) => theme.primaryGlowHover};
     transform: scale(1.5);
   }
 `;
@@ -49,12 +49,12 @@ const Image = styled.img`
     width: 70px;
     border-radius: 16px;
     object-fit: cover;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px ${({ theme }) => theme.shadow};
     transition: all 0.4s ease;
     
     ${StyledCard}:hover & {
       transform: scale(1.1) rotate(2deg);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 20px ${({ theme }) => theme.primaryBorder};
     }
     
     @media only screen and (max-width: 768px){
@@ -86,12 +86,12 @@ const Header = styled.div`
 const Role = styled.div`
     font-size: 24px;
     font-weight: 800;
-    color: #ffffff;
+    color: ${({ theme }) => theme.text_primary};
     letter-spacing: -0.5px;
     transition: color 0.3s ease;
     
     ${StyledCard}:hover & {
-      color: #3b82f6;
+      color: ${({ theme }) => theme.primary};
     }
     
     @media only screen and (max-width: 768px){
@@ -102,7 +102,7 @@ const Role = styled.div`
 const Company = styled.div`
     font-size: 16px;
     font-weight: 600;
-    color: #b1b2b3;
+    color: ${({ theme }) => theme.text_secondary};
     margin-top: 4px;
     letter-spacing: 0.5px;
     @media only screen and (max-width: 768px){
@@ -113,15 +113,15 @@ const Company = styled.div`
 const DateTag = styled.div`
     font-size: 12px;
     font-weight: 600;
-    color: #3b82f6;
-    background-color: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.primaryGlow};
+    border: 1px solid ${({ theme }) => theme.primaryBorder};
     padding: 8px 16px;
     border-radius: 50px;
     white-space: nowrap;
     letter-spacing: 1px;
     text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 10px ${({ theme }) => theme.primaryGlow};
     
     @media only screen and (max-width: 768px){
         font-size: 10px;
@@ -132,7 +132,7 @@ const DateTag = styled.div`
 const Description = styled.div`
     font-size: 15px;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.7);
+    color: ${({ theme }) => theme.text_secondary};
     margin: 20px 0;
     font-weight: 400;
     @media only screen and (max-width: 768px){
@@ -149,18 +149,18 @@ const Skills = styled.div`
 const SkillBadge = styled(Badge)`
   font-size: 11px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8) !important;
-  background-color: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: ${({ theme }) => theme.text_primary} !important;
+  background-color: ${({ theme }) => theme.glassBg} !important;
+  border: 1px solid ${({ theme }) => theme.glassBorder} !important;
   padding: 6px 14px !important;
   border-radius: 100px !important;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
   
   &:hover {
-    background-color: rgba(59, 130, 246, 0.15) !important;
-    border-color: rgba(59, 130, 246, 0.4) !important;
-    color: #ffffff !important;
+    background-color: ${({ theme }) => theme.primaryGlow} !important;
+    border-color: ${({ theme }) => theme.primaryBorder} !important;
+    color: ${({ theme }) => theme.primary} !important;
     transform: translateY(-2px);
   }
 `;

@@ -10,7 +10,8 @@ const FooterContainer = styled.div`
   justify-content: center;
   position: relative;
   z-index: 10;
-  background-color: #050505;
+  background-color: ${({ theme }) => theme.bg};
+  transition: all 0.3s ease;
   
   &::before {
     content: '';
@@ -19,7 +20,7 @@ const FooterContainer = styled.div`
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+    background: linear-gradient(90deg, transparent, ${({ theme }) => theme.primaryBorder}, transparent);
   }
 `;
 
@@ -31,7 +32,6 @@ const FooterWrapper = styled.footer`
   gap: 32px;
   align-items: center;
   padding: 24px;
-  color: #f2f3f4;
 `;
 
 const Logo = styled(motion.h1)`
@@ -39,7 +39,7 @@ const Logo = styled(motion.h1)`
   font-weight: 800;
   font-size: 32px;
   letter-spacing: -0.5px;
-  background: linear-gradient(to right, #ffffff, #888888);
+  background: ${({ theme }) => theme.gradientText};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,7 +62,7 @@ const Nav = styled(motion.nav)`
 `;
 
 const NavLink = styled.a`
-  color: rgba(255, 255, 255, 0.7);
+  color: ${({ theme }) => theme.text_secondary};
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
@@ -78,14 +78,14 @@ const NavLink = styled.a`
     height: 2px;
     bottom: -6px;
     left: 50%;
-    background-color: #3b82f6;
+    background-color: ${({ theme }) => theme.primary};
     transition: all 0.3s ease;
     transform: translateX(-50%);
-    box-shadow: 0 0 10px #3b82f6;
+    box-shadow: 0 0 10px ${({ theme }) => theme.primaryGlowHover};
   }
 
   &:hover {
-    color: #ffffff;
+    color: ${({ theme }) => theme.text_primary};
     &:after {
       width: 100%;
     }
@@ -109,24 +109,24 @@ const SocialMediaIcon = styled(motion.a)`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
+  background: ${({ theme }) => theme.glassBg};
+  border: 1px solid ${({ theme }) => theme.glassBorder};
+  color: ${({ theme }) => theme.text_primary};
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &:hover {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: rgba(59, 130, 246, 0.5);
-    color: #3b82f6;
+    background: ${({ theme }) => theme.primaryGlow};
+    border-color: ${({ theme }) => theme.primaryBorder};
+    color: ${({ theme }) => theme.primary};
     transform: translateY(-8px) scale(1.1);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 20px ${({ theme }) => theme.primaryGlowHover};
   }
 `;
 
 const Copyright = styled(motion.p)`
   margin-top: 24px;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: ${({ theme }) => theme.text_tertiary};
   text-align: center;
   letter-spacing: 0.5px;
 `;

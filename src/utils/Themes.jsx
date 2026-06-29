@@ -1,5 +1,6 @@
 export const darkTheme = {
     bg: "#050505",
+    navBg: "rgba(5, 5, 5, 0.8)",
     text_primary: "#ffffff",
     text_secondary: "rgba(255, 255, 255, 0.6)",
     text_tertiary: "rgba(255, 255, 255, 0.4)",
@@ -19,21 +20,22 @@ export const darkTheme = {
 }
 
 export const lightTheme = {
-    bg: "#ffffff",
-    text_primary: "#111111",
-    text_secondary: "rgba(0, 0, 0, 0.6)",
-    text_tertiary: "rgba(0, 0, 0, 0.4)",
-    glassBg: "rgba(0, 0, 0, 0.03)",
-    glassHoverBg: "rgba(0, 0, 0, 0.06)",
-    glassBorder: "rgba(0, 0, 0, 0.08)",
-    glassHoverBorder: "rgba(0, 0, 0, 0.15)",
-    glassGlow: "rgba(0, 0, 0, 0.05)",
-    primary: "#3b82f6",
-    primaryGlow: "rgba(59, 130, 246, 0.1)",
-    primaryGlowHover: "rgba(59, 130, 246, 0.2)",
-    primaryBorder: "rgba(59, 130, 246, 0.4)",
-    gridColor: "rgba(0, 0, 0, 0.04)",
-    shadow: "rgba(0, 0, 0, 0.1)",
-    shadowLight: "rgba(0, 0, 0, 0.05)",
-    gradientText: "linear-gradient(to right, #111111, #666666)",
+    bg: "#fafcff", // Subtle cool off-white
+    navBg: "rgba(250, 252, 255, 0.8)", // Frosted off-white for navbar
+    text_primary: "#0f172a", // Slate 900
+    text_secondary: "#475569", // Slate 600
+    text_tertiary: "#94a3b8", // Slate 400
+    glassBg: "rgba(255, 255, 255, 0.7)", // Frosted white glass
+    glassHoverBg: "rgba(255, 255, 255, 0.9)",
+    glassBorder: "rgba(226, 232, 240, 0.9)", // Soft slate border
+    glassHoverBorder: "rgba(148, 163, 184, 0.5)",
+    glassGlow: "rgba(59, 130, 246, 0.05)",
+    primary: "#2563eb", // Slightly darker blue for contrast
+    primaryGlow: "rgba(37, 99, 235, 0.1)",
+    primaryGlowHover: "rgba(37, 99, 235, 0.2)",
+    primaryBorder: "rgba(37, 99, 235, 0.3)",
+    gridColor: "rgba(15, 23, 42, 0.04)", // Very subtle dark grid
+    shadow: "rgba(15, 23, 42, 0.08)", // Soft elegant drop shadow
+    shadowLight: "rgba(15, 23, 42, 0.03)",
+    gradientText: "linear-gradient(to right, #0f172a, #334155)",
 }

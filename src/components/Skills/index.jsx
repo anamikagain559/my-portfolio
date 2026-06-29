@@ -12,14 +12,14 @@ const Container = styled.div`
   align-items: center;
   padding: 120px 0;
   
-  /* Cyber/Grid Background */
-  background-color: #050505;
+  background-color: ${({ theme }) => theme.bg};
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(${({ theme }) => theme.gridColor} 1px, transparent 1px),
+    linear-gradient(90deg, ${({ theme }) => theme.gridColor} 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center center;
   overflow: hidden;
+  transition: all 0.3s ease;
 `;
 
 const Wrapper = styled.div`
@@ -42,8 +42,7 @@ const Title = styled(motion.h2)`
   text-align: center;
   letter-spacing: -1px;
   
-  /* Metallic Gradient */
-  background: linear-gradient(to right, #ffffff, #888888);
+  background: ${({ theme }) => theme.gradientText};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,7 +62,7 @@ const CategoryContainer = styled.div`
 const CategoryTitle = styled(motion.h3)`
   font-size: 28px;
   font-weight: 700;
-  color: #ffffff;
+  color: ${({ theme }) => theme.text_primary};
   display: flex;
   align-items: center;
   gap: 16px;
@@ -72,16 +71,16 @@ const CategoryTitle = styled(motion.h3)`
     content: '';
     flex-grow: 1;
     height: 1px;
-    background: linear-gradient(to right, rgba(59, 130, 246, 0.5), transparent);
+    background: linear-gradient(to right, ${({ theme }) => theme.primaryBorder}, transparent);
   }
   
   &::before {
     content: '';
     width: 12px;
     height: 12px;
-    background: #3b82f6;
+    background: ${({ theme }) => theme.primary};
     border-radius: 50%;
-    box-shadow: 0 0 15px #3b82f6;
+    box-shadow: 0 0 15px ${({ theme }) => theme.primary};
   }
 `;
 
@@ -105,12 +104,11 @@ const SkillCard = styled(motion.div)`
   aspect-ratio: 1 / 1;
   border-radius: 24px;
   
-  /* Glassmorphism Styles */
-  background: rgba(255, 255, 255, 0.02);
+  background: ${({ theme }) => theme.glassBg};
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${({ theme }) => theme.glassBorder};
+  box-shadow: 0 4px 30px ${({ theme }) => theme.shadowLight};
   
   padding: 20px;
   position: relative;
@@ -119,10 +117,10 @@ const SkillCard = styled(motion.div)`
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &:hover {
-    border-color: rgba(59, 130, 246, 0.5);
-    background: rgba(59, 130, 246, 0.05);
+    border-color: ${({ theme }) => theme.primaryBorder};
+    background: ${({ theme }) => theme.glassHoverBg};
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 40px ${({ theme }) => theme.primaryGlowHover}, inset 0 0 20px ${({ theme }) => theme.glassHoverBorder};
   }
 `;
 
@@ -130,7 +128,7 @@ const GlowLight = styled.div`
   position: absolute;
   width: 100px;
   height: 100px;
-  background: rgba(255, 255, 255, 0.05);
+  background: ${({ theme }) => theme.glassGlow};
   filter: blur(40px);
   border-radius: 50%;
   top: -50px;
@@ -138,7 +136,7 @@ const GlowLight = styled.div`
   transition: all 0.5s ease;
 
   ${SkillCard}:hover & {
-    background: rgba(59, 130, 246, 0.4);
+    background: ${({ theme }) => theme.primaryGlowHover};
     transform: scale(1.8);
   }
 `;
@@ -155,12 +153,12 @@ const SkillImage = styled.img`
   width: 50px;
   height: 50px;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+  filter: drop-shadow(0 0 8px ${({ theme }) => theme.glassGlow});
   transition: all 0.4s ease;
 
   ${SkillCard}:hover & {
     transform: scale(1.15);
-    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+    filter: drop-shadow(0 0 15px ${({ theme }) => theme.primaryGlowHover});
   }
 
   @media (max-width: 768px) {
@@ -172,36 +170,34 @@ const SkillImage = styled.img`
 const Percentage = styled.div`
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: ${({ theme }) => theme.text_primary};
   margin-bottom: 4px;
   letter-spacing: 1px;
   transition: color 0.3s ease;
   
   ${SkillCard}:hover & {
-    color: #3b82f6;
+    color: ${({ theme }) => theme.primary};
   }
 `;
 
 const SkillName = styled.div`
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${({ theme }) => theme.text_secondary};
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
   
   ${SkillCard}:hover & {
-    color: #ffffff;
+    color: ${({ theme }) => theme.text_primary};
   }
 `;
 
-// Helper function to generate a consistent pseudo-random percentage based on string name
 const getConsistentPercentage = (name) => {
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
     hash = name.charCodeAt(i) + ((hash << 5) - hash);
   }
-  // Generate a number between 75 and 98
   return Math.abs(hash % 24) + 75;
 };
 

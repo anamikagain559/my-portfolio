@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GithubButton, ButtonContainer, MobileIcon, MobileMenu, MobileLink, ProfileIcon } from './NavbarStyledComponent'
+import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GithubButton, ButtonContainer, MobileIcon, MobileMenu, MobileLink } from './NavbarStyledComponent'
 import { FaBars, FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
 import { CloseRounded } from '@mui/icons-material';

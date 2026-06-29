@@ -2,10 +2,10 @@ import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeroContainer = styled.div`
-  background: #050505;
+  background: ${({ theme }) => theme.bg};
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(${({ theme }) => theme.gridColor} 1px, transparent 1px),
+    linear-gradient(90deg, ${({ theme }) => theme.gridColor} 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center center;
   display: flex;
@@ -22,6 +22,7 @@ export const HeroContainer = styled.div`
   }
   z-index: 1;
   overflow: hidden;
+  transition: all 0.3s ease;
 `;
 
 export const HeroBg = styled.div`
@@ -49,7 +50,6 @@ export const HeroBg = styled.div`
   }
 `;
 
-// Massive background text for that Awwwards look
 export const BackgroundText = styled.div`
   position: absolute;
   top: 50%;
@@ -57,7 +57,7 @@ export const BackgroundText = styled.div`
   transform: translate(-50%, -50%);
   font-size: 15vw;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.02);
+  color: ${({ theme }) => theme.glassBg};
   white-space: nowrap;
   pointer-events: none;
   z-index: -1;
@@ -120,13 +120,13 @@ export const HireTag = styled(motion.div)`
   align-items: center;
   gap: 12px;
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: ${({ theme }) => theme.glassBg};
+  border: 1px solid ${({ theme }) => theme.glassBorder};
   backdrop-filter: blur(10px);
   border-radius: 100px;
   font-weight: 600;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${({ theme }) => theme.text_primary};
   letter-spacing: 2px;
   margin-bottom: 30px;
   width: fit-content;
@@ -149,7 +149,7 @@ export const HireTag = styled(motion.div)`
 export const Title = styled(motion.div)`
   font-size: 64px;
   font-weight: 800;
-  color: #ffffff;
+  color: ${({ theme }) => theme.text_primary};
   line-height: 1.1;
   letter-spacing: -1.5px;
   margin-bottom: 16px;
@@ -165,7 +165,7 @@ export const Title = styled(motion.div)`
 `;
 
 export const Name = styled.span`
-  background: linear-gradient(to right, #ffffff, #3b82f6);
+  background: ${({ theme }) => theme.gradientText};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -176,7 +176,7 @@ export const TextLoop = styled(motion.div)`
   font-size: 32px;
   display: flex;
   gap: 12px;
-  color: rgba(255, 255, 255, 0.9);
+  color: ${({ theme }) => theme.text_primary};
   line-height: 1.2;
   margin-bottom: 24px;
   
@@ -191,9 +191,9 @@ export const TextLoop = styled(motion.div)`
 `;
 
 export const Span = styled.span`
-  color: #3b82f6;
+  color: ${({ theme }) => theme.primary};
   text-decoration: underline;
-  text-decoration-color: rgba(59, 130, 246, 0.4);
+  text-decoration-color: ${({ theme }) => theme.primaryBorder};
   text-underline-offset: 6px;
   
   .Typewriter {
@@ -205,7 +205,7 @@ export const SubTitle = styled(motion.div)`
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${({ theme }) => theme.text_secondary};
   max-width: 550px;
 
   @media (max-width: 960px) {
@@ -243,15 +243,15 @@ export const ResumeButton = styled(motion.a)`
     font-weight: 600;
     letter-spacing: 1px;
     
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.5);
+    background: ${({ theme }) => theme.primaryGlow};
+    border: 1px solid ${({ theme }) => theme.primaryBorder};
     backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     
     &:hover {
-        background: rgba(59, 130, 246, 0.3);
-        border-color: rgba(59, 130, 246, 0.8);
-        box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+        background: ${({ theme }) => theme.primaryGlowHover};
+        border-color: ${({ theme }) => theme.primary};
+        box-shadow: 0 0 30px ${({ theme }) => theme.primaryGlowHover};
         transform: translateY(-2px);
     }    
     
@@ -268,22 +268,22 @@ export const ViewProjectButton = styled(motion.a)`
     justify-content: center;
     width: fit-content;
     padding: 16px 32px;
-    color: rgba(255, 255, 255, 0.8);
+    color: ${({ theme }) => theme.text_primary};
     border-radius: 100px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
     
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: ${({ theme }) => theme.glassBg};
+    border: 1px solid ${({ theme }) => theme.glassBorder};
     backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     
     &:hover {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.3);
+        color: ${({ theme }) => theme.text_primary};
+        background: ${({ theme }) => theme.glassHoverBg};
+        border-color: ${({ theme }) => theme.glassHoverBorder};
         transform: translateY(-2px);
     }    
     
@@ -306,7 +306,7 @@ export const ProfileImageContainer = styled(motion.div)`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(59, 130, 246, 0.2);
+    background: ${({ theme }) => theme.primaryGlowHover};
     filter: blur(80px);
     border-radius: 50%;
     z-index: -1;
@@ -318,7 +318,7 @@ export const ProfileImageContainer = styled(motion.div)`
     width: 105%;
     height: 105%;
     border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border: 1px dashed ${({ theme }) => theme.glassBorder};
     animation: rotate 30s linear infinite;
     z-index: 0;
   }
@@ -347,34 +347,34 @@ export const Img = styled.img`
   object-fit: cover;
   z-index: 1;
   
-  border: 4px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 4px solid ${({ theme }) => theme.glassBorder};
+  box-shadow: 0 20px 50px ${({ theme }) => theme.shadow}, inset 0 0 20px ${({ theme }) => theme.glassGlow};
 `;
 
 export const StatCard = styled(motion.div)`
   position: absolute;
   bottom: 20px;
   left: -20px;
-  background: rgba(10, 10, 15, 0.7);
+  background: ${({ theme }) => theme.bg};
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid ${({ theme }) => theme.glassBorder};
   padding: 16px 24px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px ${({ theme }) => theme.shadow};
   z-index: 10;
   
   h4 {
-    color: #ffffff;
+    color: ${({ theme }) => theme.text_primary};
     font-size: 24px;
     font-weight: 800;
     margin: 0;
   }
   
   p {
-    color: rgba(255, 255, 255, 0.6);
+    color: ${({ theme }) => theme.text_secondary};
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
@@ -396,7 +396,7 @@ export const ScrollIndicator = styled(motion.div)`
   cursor: pointer;
 
   span {
-    color: rgba(255, 255, 255, 0.4);
+    color: ${({ theme }) => theme.text_tertiary};
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -411,7 +411,7 @@ export const ScrollIndicator = styled(motion.div)`
 export const ScrollLine = styled.div`
   width: 1px;
   height: 60px;
-  background: rgba(255, 255, 255, 0.1);
+  background: ${({ theme }) => theme.glassBorder};
   position: relative;
   overflow: hidden;
 
@@ -422,7 +422,7 @@ export const ScrollLine = styled.div`
     left: 0;
     width: 100%;
     height: 30%;
-    background: #3b82f6;
+    background: ${({ theme }) => theme.primary};
     animation: scrollDrop 2s infinite ease-in-out;
   }
 
